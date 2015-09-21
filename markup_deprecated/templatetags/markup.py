@@ -27,7 +27,7 @@ def textile(value):
             raise template.TemplateSyntaxError("Error in 'textile' filter: The Python textile library isn't installed.")
         return force_text(value)
     else:
-        return mark_safe(force_text(textile.textile(force_bytes(value), encoding='utf-8', output='utf-8')))
+        return mark_safe(force_text(textile.textile(force_bytes(value), encoding='utf-8', output='utf-8', html_type='html5')))
 
 @register.filter(is_safe=True)
 def markdown(value, arg=''):
